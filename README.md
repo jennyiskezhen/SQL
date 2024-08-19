@@ -1,8 +1,8 @@
 ## SQL Examples
 
-In this SQL repository, I will continue adding new SQL examples that are useful for data analytics. The first part of each document contains the fabricated dataset for demonstration and the following second part contains the SQL syntax examples for data analytics.
+In this SQL repository, I will continue adding new SQL examples that are useful for data analytics. In some documents, the first part contains the fabricated dataset for demonstration and the following part contains the SQL querying examples. In others only SQL querying examples are shown.
 
-The examples contain both standard SQL and PostgreSOL syntax. 
+The examples contain both standard SQL and PostgreSQL syntax. SQL queries are written and tested using SQLite Studio.
 
 The types of SQL statement include the follows:
 

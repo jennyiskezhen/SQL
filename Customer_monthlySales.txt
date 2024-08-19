@@ -1,0 +1,37 @@
+-- In this SQL, I am querying a database with multiple tables to obtain statistics about customer and order data. 
+
+--How many orders were placed in January were for an iPhone?
+/*select count(*) from BIT_DB.JanSales
+where length(orderID)=6 and orderID <> "Order ID" and Product = "iPhone"*/
+
+--customer account numbers for all the orders that were placed in February.
+/*select acctnum from BIT_DB.FebSales Feb
+left join BIT_DB.customers Cust
+on Feb.orderID = Cust.order_id
+where orderID <> "Order ID" and length(orderID) = 6*/ 
+
+--Find the product that was the cheapest one sold in January, and what was the price?
+/*select * from Bit_DB.JanSales
+where orderID <> "Order ID" and length(orderID) = 6
+group by Product
+order by price asc*/
+
+--What is the total revenue for each product sold in January?
+/*select round(sum(Quantity*price),2) as total_revenue, Product from Bit_DB.JanSales
+group by Product*/
+
+--Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+/*select Product,sum(Quantity),round(sum(Quantity*price),2) as total_revenue, location
+from BIT_DB.FebSales
+where location = "548 Lincoln St, Seattle, WA 98101"
+group by Product*/
+
+--How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+/*select count(distinct people.acctnum) as number,
+round(avg(Quantity * price),2) as ave_amount_spent
+from BIT_DB.FebSales Feb
+left join BIT_DB.customers People
+on Feb.orderID = People.order_id
+where orderID <> "Order ID" and length(orderID) = 6 and Quantity > 2*/
+
+
