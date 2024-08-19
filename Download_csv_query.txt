@@ -1,0 +1,47 @@
+# For this example, I downloaded data from kaggle.
+# Then I created a SQL table to insert data
+# Finally I analyzed the data to obtain information using SQLite Studio
+
+# create the table
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL )
+
+# insert the csv file into the table
+
+# The I explored the data using the following SQL: 
+
+--Statistics about the popularity
+/*select count(*),
+case when popularity >90 then ">90"
+when popularity >80 and popularity <=90 then "80-90"
+when popularity >70 and popularity <=80 then "70-80"
+else "<70" end as "Popularity level"
+from BIT_DB.Spotifydata
+group by "Popularity level"
+order by count(*) desc*/
+
+--find out who's the most popular artist
+/*select artist_name, track_name from BIT_DB.Spotifydata
+order by popularity desc*/
+
+--find the number of tracks by each artist
+/*select artist_name, count(*),round(avg(popularity)) as average_popularity from BIT_DB.Spotifydata
+group by artist_name
+order by count(*) desc*/

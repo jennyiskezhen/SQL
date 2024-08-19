@@ -1,4 +1,4 @@
--- In this SQL, I am querying a database with multiple tables to obtain statistics about customer and order data. 
+# In this SQL, I am querying a database with multiple tables to obtain statistics about customer and order data. 
 
 --How many orders were placed in January were for an iPhone?
 /*select count(*) from BIT_DB.JanSales
@@ -33,5 +33,48 @@ from BIT_DB.FebSales Feb
 left join BIT_DB.customers People
 on Feb.orderID = People.order_id
 where orderID <> "Order ID" and length(orderID) = 6 and Quantity > 2*/
+
+--Use like statement
+*select orderdate from BIT_DB.FebSales
+WHERE orderdate like '02/18/19%'*/
+
+/*select Product, Price from BIT_DB.FebSales
+WHERE Price like '%.99'*/
+
+--Find the products sold in Los Angeles in February, and include how many of each were sold.
+/*select product, sum(Quantity), location from BIT_DB.FebSales
+where location like "%Los Angeles%"
+group by Product*/
+
+--Which locations in New York received at least 3 orders in January, and how many orders did they each receive?
+/*select count(*) as Order_num, location from BIT_DB.JanSales
+where length(orderID) = 6 and orderID <> "Order ID" and location like "%NY%"
+group by location
+having Order_num >= 3*/
+
+--How many of each type of headphone were sold in February?
+/*select Product, count(*)as Sale_number from BIT_DB.FebSales
+where length(orderID) = 6 and orderID <> "Order ID" and Product like '%Headphones%'
+group by Product*/
+
+--What was the average amount spent per account in February?
+/*select sum(Quantity*price)/count(people.acctnum) from BIT_DB.FebSales Feb
+left join BIT_DB.customers people
+on Feb.orderID = people.order_id
+where length(orderID) = 6 and orderID <> "Order ID" */
+
+--What was the average quantity of products purchased per account in February?
+/*select sum(Quantity)/count(people.acctnum) from BIT_DB.FebSales Feb
+left join BIT_DB.customers people
+on Feb.orderID = people.order_id
+where length(orderID) = 6 and orderID <> "Order ID"*/
+
+--Which product brought in the most revenue in January and how much revenue did it bring in total?
+/*select Product, round(sum(Quantity*price),2) as total_revenue from BIT_DB.JanSales
+where length(orderID) = 6 and orderID <> "Order ID"
+group by Product
+order by total_revenue desc*/
+
+
 
 

@@ -4,8 +4,9 @@ In this SQL repository, I will continue adding new SQL examples that are useful 
 
 The examples contain both standard SQL and PostgreSQL syntax. SQL queries are written and tested using SQLite Studio.
 
-The types of SQL statement include the follows:
+The types of SQL statement include the following:
 
+* `create table`
 * `select` `from`
 * `where` `and`
 * `order by (asc or desc)`
@@ -16,5 +17,8 @@ The types of SQL statement include the follows:
 * `date()`
 * Statement for subquery
 * Statistics such as `count`, `max`, `min`, `sum`, `avg`
+* `distinct`
+* `where` `between` `and`
+* `like` with `%` showing the matching scenarios
 
  
