@@ -23,6 +23,6 @@ The types of SQL statement include the following:
 * `like` with `%` showing the matching scenarios
 * **Common Table Expressions (CTEs)** using `with TempName as`
 * `'TagName' as tag`
-* **Window Functions** to get statistics across a set of rows instead of just one row: `avg(ColName) over (partition by GroupByColName) as "NewColName"` `rank() over (partition by GroupByColName group by RankBasedColName) as "NewColName"`
+* **Window Functions** to get statistics across a set of rows instead of just one row: `avg(ColName) over (partition by GroupByColName) as "NewColName"` `rank() over (partition by GroupByColName group by RankBasedColName) as "NewColName"` where the rank is within each group
 
  
