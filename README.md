@@ -7,12 +7,13 @@ The examples contain both standard SQL and PostgreSQL syntax. SQL queries are wr
 The types of SQL statement include the following:
 
 * `create table`
+* `drop table`
 * `select` `from`
 * `where` `and`
 * `order by (asc or desc)`
 * `group by`
 * `having`  (used below group by)
-* `case` `else` `end` `as`
+* `case` `when` `then` `else` `end as`
 * `inner join` and `left join`, `on`
 * `date()`
 * Statement for subquery
@@ -20,5 +21,8 @@ The types of SQL statement include the following:
 * `distinct`
 * `where` `between` `and`
 * `like` with `%` showing the matching scenarios
+* **Common Table Expressions (CTEs)** using `with TempName as`
+* `'TagName' as tag`
+* **Window Functions** to get statistics across a set of rows instead of just one row: `avg(ColName) over (partition by GroupByColName) as "NewColName"` `rank() over (partition by GroupByColName group by RankBasedColName) as "NewColName"`
 
  

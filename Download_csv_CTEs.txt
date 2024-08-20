@@ -45,3 +45,13 @@ order by popularity desc*/
 /*select artist_name, count(*),round(avg(popularity)) as average_popularity from BIT_DB.Spotifydata
 group by artist_name
 order by count(*) desc*/
+
+-- Use CTEs
+with popular90 as (
+select artist_name, round(avg(popularity)) as popularity from Spotifydata
+group by artist_name
+--order by popularity desc
+)
+select artist_name, popularity, 'Top Star' as tag from popular90
+where popularity >= 90
+
